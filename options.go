@@ -82,6 +82,7 @@ type Color struct {
 
 // Shortcut to black RGB color representation
 var ColorBlack = Color{0, 0, 0}
+var ColorWhite = Color{255, 255, 255}
 
 // Text-based watermark configuration
 type Watermark struct {
@@ -101,12 +102,12 @@ type GaussianBlur struct {
 }
 
 type Sharpen struct {
-	Radius  int
-	X1 float64
-	Y2 float64
-	Y3 float64
-	M1 float64
-	M2 float64
+	Radius int
+	X1     float64
+	Y2     float64
+	Y3     float64
+	M1     float64
+	M2     float64
 }
 
 // Supported image transformation options

@@ -22,7 +22,7 @@ func Resize(buf []byte, o Options) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-
+	ColorBlack
 	// Clone and define default options
 	o = applyDefaults(o, imageType)
 
@@ -149,7 +149,7 @@ func shouldTransformImage(o Options, inWidth, inHeight int) bool {
 }
 
 func shouldApplyEffects(o Options) bool {
-	return o.GaussianBlur.Sigma > 0 || o.GaussianBlur.MinAmpl > 0 || o.Sharpen.Radius > 0 && o.Sharpen.Y2 > 0 || o.Sharpen.Y3 > 0 
+	return o.GaussianBlur.Sigma > 0 || o.GaussianBlur.MinAmpl > 0 || o.Sharpen.Radius > 0 && o.Sharpen.Y2 > 0 || o.Sharpen.Y3 > 0
 }
 
 func transformImage(image *C.VipsImage, o Options, shrink int, residual float64) (*C.VipsImage, error) {
@@ -314,7 +314,7 @@ func watermakImage(image *C.VipsImage, w Watermark) (*C.VipsImage, error) {
 
 func imageFlatten(image *C.VipsImage, imageType ImageType, o Options) (*C.VipsImage, error) {
 	// Only PNG images are supported for now
-	if imageType != PNG || o.Background == ColorBlack {
+	if imageType != PNG || o.Background == ColorWhite {
 		return image, nil
 	}
 
