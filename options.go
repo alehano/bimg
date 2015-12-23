@@ -82,7 +82,6 @@ type Color struct {
 
 // Shortcut to black RGB color representation
 var ColorBlack = Color{0, 0, 0}
-var ColorWhite = Color{255, 255, 255}
 
 // Text-based watermark configuration
 type Watermark struct {

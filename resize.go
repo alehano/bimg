@@ -22,7 +22,7 @@ func Resize(buf []byte, o Options) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	ColorBlack
+
 	// Clone and define default options
 	o = applyDefaults(o, imageType)
 
@@ -314,7 +314,7 @@ func watermakImage(image *C.VipsImage, w Watermark) (*C.VipsImage, error) {
 
 func imageFlatten(image *C.VipsImage, imageType ImageType, o Options) (*C.VipsImage, error) {
 	// Only PNG images are supported for now
-	if imageType != PNG || o.Background == ColorWhite {
+	if imageType != PNG || o.Background == ColorBlack {
 		return image, nil
 	}
 
